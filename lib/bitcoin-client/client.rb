@@ -237,9 +237,10 @@ class BitcoinClient::Client
   end
 
   # Submits raw transaction (serialized, hex-encoded) to local node and network.
-  def sendrawtransaction(hexstring)
-    @api.request 'sendrawtransaction', hexstring
+  def sendrawtransaction(hexstring, allowhighfees = nil, peer_id = nil)
+    @api.request 'sendrawtransaction', hexstring, allowhighfees, peer_id
   end
+
   # +amount+ is a real and is rounded to 8 decimal places
   def sendtoaddress(bitcoinaddress, amount, comment = nil, comment_to = nil)
     @api.request 'sendtoaddress', bitcoinaddress, amount, comment, comment_to
