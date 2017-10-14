@@ -23,7 +23,7 @@ class BitcoinClient::RPC
   end
 
   def dispatch(request)
-    RestClient.post(service_url, request.to_post_data, content_type: :json, timeout: 180) do |respdata, req, result|
+    RestClient::Request.execute(method: :post, url: service_url, payload: request.to_post_data, headers: { content_type: :json }, timeout: 300) do |respdata, req, result|
       response = begin
         JSON.parse respdata
       rescue JSON::ParserError => e
