@@ -119,6 +119,10 @@ class BitcoinClient::Client
     @api.request 'getinfo'
   end
 
+  def getblockchaininfo
+    @api.request 'getblockchaininfo'
+  end
+
   # Returns data about each connected network node.
   def getpeerinfo
     @api.request 'getpeerinfo'
