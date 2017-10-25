@@ -237,8 +237,8 @@ class BitcoinClient::Client
   end
 
   # Submits raw transaction (serialized, hex-encoded) to local node and network.
-  def sendrawtransaction(hexstring, allowhighfees = nil, peer_id = nil, timestamp = nil, unsolicited_tx = false)
-    @api.request 'sendrawtransaction', hexstring, allowhighfees, peer_id, timestamp, unsolicited_tx
+  def sendrawtransaction(hexstring, allowhighfees = nil, peer_id = nil, timestamp = nil, unsolicited_tx = false, add_to_queue = false)
+    @api.request 'sendrawtransaction', hexstring, allowhighfees, peer_id, timestamp, unsolicited_tx, add_to_queue
   end
 
   # +amount+ is a real and is rounded to 8 decimal places
