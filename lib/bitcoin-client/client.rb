@@ -94,6 +94,10 @@ class BitcoinClient::Client
     @api.request 'getblockhash', index
   end
 
+  def getblockheader(hash)
+    @api.request 'getblockheader', hash
+  end
+
   # Returns the number of connections to other nodes.
   def getconnectioncount
     @api.request 'getconnectioncount'
